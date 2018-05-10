@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>No.1 - 制作一个简单的菜单动画效果</title>
+    <style>
+        .wrapper {
+            width:150px;
+            margin:0 auto;
+            text-align:center;
+        }
+
+        .switch-btn{
+            width:100px;
+            height:30px;
+            outline:none;
+            border-radius: 5px;
+            border:1px solid #000;
+            color:#000;
+            background:#fff;
+        }
+
+        .switch-btn:hover{
+            border:1px solid #7194C8;
+            color:#7194C8;
+        }
+
+        .title {
+            color: #000;
+            -o-transition: color .3s linear;
+            -moz-transition: color .3s linear;
+            -webkit-transition: color .3s linear;
+            transition: color .3s linear;
+        }
+
+        .title::after {
+            content: " ";
+            display: block;
+            margin: 10px auto;
+            width: 0em;
+            height: 3px;
+            background: currentColor;
+            -o-transition: width .3s linear;
+            -moz-transition: width .3s linear;
+            -webkit-transition: width .3s linear;
+            transition: width .3s linear;
+        }
+
+        .on {
+            color: #7194C8;
+        }
+
+        .on::after {
+            width: 4.5em;
+        }
+    </style>
+    <script>
+        function switchStyle(e) {
+            var title = document.querySelector(".title");
+            if (title.getAttribute("class").indexOf("on") != -1) {
+                title.classList.remove("on")
+            } else {
+                title.classList.add("on");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2 class="title">前端学院</h2>
+        <button class="switch-btn" onclick="switchStyle(this)">切换样式</button>
+    </div>
+</body>
+</html>

@@ -1,3 +1,4 @@
+<!-- 自适应三栏式布局 -->
 <html>
 
 <head>
@@ -13,12 +14,15 @@
             padding: 20px;
             background: #eee;
             border: 1px solid #999;
-            min-width: 440px;
+            min-width: 500px;
         }
 
-        .left_side {
+        /* 第一种方法：左右浮动，中间元素上浮，调整它的margin，要求两边的div必须在中间元素的前面 */
+
+        /* .left_side {
             float: left;
             width: 160px;
+            height: 80px;
         }
 
         .right_side {
@@ -29,14 +33,80 @@
             margin-left: 240px;
             margin-right: 160px;
             min-width: 40px;
+        } */
+
+        /* 第二种方法：绝对定位，要求两边的div必须在中间元素的前面,但是它撑不起父元素的高度*/
+
+        /* .left_side {
+            position: absolute;
+            left: 20px;
         }
+
+        .right_side {
+            position: absolute;
+            right: 20px;
+        }
+
+        .center_content {
+            margin-left: 160px;
+            margin-right: 150px;
+        } */
+
+        /* 第三种方法：margin负值法：双飞翼布局 要求中间元素的内容包一个div，中间块在前*/
+
+        /* .left_side {
+            float: left;
+            margin-left:-100%;
+        }
+
+        .right_side {
+            float: left;
+            margin-left:-124px;
+        }
+        
+        .center_content {
+            width: 100%;
+            float: left;
+        }
+
+        .p_content {
+            margin:0 150px;
+        } */
+
+        /* 第四种方法：margin负值法：圣杯布局 要求中间块在前 父元素设置padding值*/
+
+        .wrap{
+            padding:20px 170px;
+        }
+        .left_side,.right_side,.center_content{
+            float:left;
+        }
+        .left_side{
+            margin-left:-100%;
+            position:relative;
+            left: -150px;;
+        }
+        .right_side{
+            margin-left: -124px;
+            position:relative;
+            left:144px;
+        }
+
+        /* 第四种 */
+
+        /* .wrap{
+            display:flex;
+        }
+        .center_content{
+            margin: 0 20px;
+        } */
 
         .right_side ul li {
             list-style: none;
         }
 
         .left_side,
-        .center_content,
+        .p_content,
         .right_side {
             padding: 20px;
             border: 1px solid #999;
@@ -60,6 +130,16 @@
 
 <body>
     <div class='wrap clear_fixed'>
+        <div class="center_content clear_fixed">
+            <div class="p_content">
+                <p>
+                    尝试 position 和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。 调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。 改变中间一栏的内容长度，以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。
+                    其他效果图中给出的标识均被正确地实现。 尝试 position 和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。
+                    调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。 改变中间一栏的内容长度，以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。 其他效果图中给出的标识均被正确地实现。 尝试
+                    position 和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。 调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。
+                </p>
+            </div>
+        </div>
         <side class="left_side">
             <div class="team_logo logo_div"></div>
             <div class="team_name"></div>
@@ -73,14 +153,9 @@
                 <li class="logo_div"></li>
             </ul>
         </side>
-        <div class="center_content clear_fixed">
-            <p>
-                尝试 position 和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。 调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。 改变中间一栏的内容长度，以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。
-                其他效果图中给出的标识均被正确地实现。 尝试 position 和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。
-                调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。 改变中间一栏的内容长度，以确保在中间一栏较高和右边一栏较高时，父元素的高度始终为子元素中最高的高度。 其他效果图中给出的标识均被正确地实现。 尝试 position
-                和 float 的效果，思考它们的异同和应用场景。 注意测试不同情况，尤其是极端情况下的效果。 图片和文字内容请自行替换，尽可能体现团队的特色。 调节浏览器宽度，固定宽度和自适应宽度的效果始终符合预期。
-            </p>
-        </div>
+
+        
+
     </div>
 </body>
 
