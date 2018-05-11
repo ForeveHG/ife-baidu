@@ -19,26 +19,52 @@
         }
 
         .skew {
+            -webkit-transform-origin: top;
+            -moz-transform-origin: top;
+            -ms-transform-origin: top;
+            -o-transform-origin:top;
             transform-origin: top;
+            -webkit-transform: skewX(30deg);
+            -moz-transform: skewX(30deg);
+            -ms-transform: skewX(30deg);
+            -o-transform: skewX(30deg);
             transform: skewX(30deg)
         }
 
         .scale {
-            transform-origin: center;
+            -webkit-transform: scaleX(.5);
+            -moz-transform: scaleX(.5);
+            -ms-transform: scaleX(.5);
+            -o-transform: scaleX(.5);
             transform: scaleX(.5)
         }
 
         .rotate {
-            transform-origin: center;
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
             transform: rotate(45deg)
         }
 
         .translate {
+            -webkit-transform: translate(10px,20px);
+            -moz-transform: translate(10px,20px);
+            -ms-transform: translate(10px,20px);
+            -o-transform: translate(10px,20px);
             transform: translate(10px, 20px)
         }
 
         .combine {
+            -webkit-transform-origin: top;
+            -moz-transform-origin: top;
+            -ms-transform-origin: top;
+            -o-transform-origin:top;
             transform-origin: top;
+            -webkit-transform: scaleX(.5) translate(10px,20px) skew(30deg) rotate(45deg);
+            -moz-transform: scaleX(.5) translate(10px,20px) skew(30deg) rotate(45deg);
+            -ms-transform: scaleX(.5) translate(10px,20px) skew(30deg) rotate(45deg);
+            -o-transform: scaleX(.5) translate(10px,20px) skew(30deg) rotate(45deg);
             transform: scaleX(.5) translate(10px,20px) skew(30deg) rotate(45deg);
         }
     </style>
