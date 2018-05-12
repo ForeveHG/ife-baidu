@@ -1,3 +1,20 @@
-虽然做出来是很简单的一个东西吧，但重要的是过程，以前一直用transform大多都是拿来即用，搜到的东西出效果就完了，这是第一次仔细去了解transform这个属性
+transform2D变换
+transform属性的含义是转换，它使元素可以按照指定的值来移动，缩放，倾斜，旋转等
+移动
+translateX(x)
+translateY(y)
+translate(x,y)
+缩放: 参数是当前宽高的倍数
+scaleX(n)
+scaleY(n)
+scale(n)
+倾斜：
+这个属性刚开始让我有点儿困惑，
+skewX(deg)
+skewY(deg)
+skew(deg)
+旋转：
+rotate(deg)
+>参考
 [理解CSS3 transform中的Matrix(矩阵)](http://www.zhangxinxu.com/wordpress/2012/06/css3-transform-matrix-%E7%9F%A9%E9%98%B5/)
 [CSS3 Transitions, Transforms和Animation使用简介与应用展示](http://www.zhangxinxu.com/wordpress/2010/11/css3-transitions-transforms-animation-introduction/)
