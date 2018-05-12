@@ -6,3 +6,5 @@
 [查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task02/)
 3. 纯Css实现猫笑起来动画
 [查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task03/)
+4. 图片反转
+[查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task04/)
