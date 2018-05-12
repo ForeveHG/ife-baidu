@@ -111,6 +111,9 @@
             left: 50%;
             top: -1px;
             margin-left: -23px;
+            -webkit-transition: transform ease 1s;
+            -moz-transition: transform ease 1s;
+            -o-transition: transform ease 1s;
             transition: transform ease 1s;
         }
 
@@ -123,6 +126,9 @@
             border-top: 2px solid #46240b;
             background: #f6f7f2;
             top:0px;
+            -webkit-transition: top ease 1s;
+            -moz-transition: top ease 1s;
+            -o-transition: top ease 1s;
             transition:top ease 1s;
         }
 
@@ -142,6 +148,9 @@
             border-radius: 50% 50% 50% 50%;
             background: #e85a5e;
             opacity: 0.0;
+            -webkit-transition: opacity ease 1s;
+            -moz-transition: opacity ease 1s;
+            -o-transition: opacity ease 1s;
             transition:opacity ease-in 1s;
         }
 
@@ -190,19 +199,27 @@
             position: absolute;
             left: auto;
             right: 0;
-            transition:  border-radius ease 1s;
         }
 
-        .mouth-wrap .left{
+        .mouth-wrap .left, .mouth-wrap .right{
+            -webkit-transition: border-radius ease 1s;
+            -moz-transition: border-radius ease 1s;
+            -o-transition: border-radius ease 1s;
             transition:  border-radius ease 1s;
         }
 
         /*鼠标hover样式 写在这里*/
         .face:hover+.ear-wrap .right{
+            -webkit-transform: scale(1.2) rotate(20deg);
+            -moz-transform: scale(1.2) rotate(20deg);
+            -o-transform: scale(1.2) rotate(20deg);
             transform: scale(1.2) rotate(20deg);
         }
 
         .face:hover+.ear-wrap .left{
+            -webkit-transform: scale(1.2) rotate(-20deg);
+            -moz-transform: scale(1.2) rotate(-20deg);
+            -o-transform: scale(1.2) rotate(-20deg);
             transform: scale(1.2) rotate(-20deg);
         }
 
@@ -211,7 +228,13 @@
         }
 
         .face:hover .eye-core{
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -o-transform-origin: center;
             transform-origin: center;
+            -webkit-transform: scaleX(.85);
+            -moz-transform: scaleX(.85);
+            -o-transform: scaleX(.85);
             transform: scaleX(.85);
         }
 
