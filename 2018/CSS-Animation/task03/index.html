@@ -77,7 +77,7 @@
         .eye-wrap {
             position: absolute;
             width: 280px;
-            height: 70px;
+            height: 65px;
             top: 90px;
             left: 50%;
             margin-left: -140px;
@@ -142,7 +142,7 @@
             border-radius: 50% 50% 50% 50%;
             background: #e85a5e;
             opacity: 0.0;
-            transition:opacity cubic-bezier(0.95, 0.95, 0.95, 0.95) 1s;
+            transition:opacity ease-in 1s;
         }
 
         /* 鼻子 */
@@ -197,86 +197,13 @@
             transition:  border-radius ease 1s;
         }
 
-        @keyframes yaoear-left{
-            0%{
-                transform: scale(1.2) rotate(-20deg);
-            }
-
-            25%{
-                transform: scale(1.2) rotate(-10deg);
-            }
-
-            50%{
-                transform: scale(1.2) rotate(-20deg);
-            }
-
-            75%{
-                transform: scale(1.2) rotate(-30deg);
-            }
-
-            100%{
-                transform: scale(1.2) rotate(-20deg);
-            }
-        }
-
-         @keyframes yaoear-right{
-            0%{
-                transform: scale(1.2) rotate(20deg);
-            }
-
-            25%{
-                transform: scale(1.2) rotate(30deg);
-            }
-
-            50%{
-                transform: scale(1.2) rotate(20deg);
-            }
-
-            75%{
-                transform: scale(1.2) rotate(10deg);
-            }
-
-            100%{
-                transform: scale(1.2) rotate(20deg);
-            }
-        }
-
-        @keyframes yaotou{
-            0%{
-                transform: rotate(0deg);
-            }
-
-            25%{
-                transform: rotate(10deg);
-            }
-
-            50%{
-                transform: rotate(0deg);
-            }
-
-            75%{
-                transform: rotate(-10deg);
-            }
-
-            100%{
-                transform: rotate(0deg);
-            }
-        }
-
         /*鼠标hover样式 写在这里*/
-        .face:hover{
-            transform-origin: bottom;
-            animation: yaotou 2s linear 1s;
-        }
-
         .face:hover+.ear-wrap .right{
             transform: scale(1.2) rotate(20deg);
-            animation: yaoear-right 2s linear 1s;
         }
 
         .face:hover+.ear-wrap .left{
             transform: scale(1.2) rotate(-20deg);
-            animation: yaoear-left 2s linear 1s;
         }
 
         .face:hover .eye-bottom{
