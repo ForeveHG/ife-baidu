@@ -19,22 +19,11 @@
         transform-style:preserve-3d;
         position:relative;
         background-image:url(images/zm.jpg);
-        -webkit-transition-property: transform,background-image;
-        -moz-transition-property: transform,background-image;
-        -o-transition-property: transform,background-image;
-        transition-property: transform,background-image;
-        -webkit-transition-duration: 1s,0s;
-        -moz-transition-duration: 1s,0s;
-        -o-transition-duration:1s,0s;
-        transition-duration: 1s,0s;
-        -webkit-transition-timing-function: ease-in-out;
-        -moz-transition-timing-function: ease-in-out;
-        -o-transition-timing-function: ease-in-out;
-        transition-timing-function: ease-in-out;
-        -webkit-transition-delay: 0s,.5s;
-        -moz-transition-delay: 0s,.5s;
-        -o-transition-delay:0s,.5s;
-        transition-delay: 0s,.5s;
+        -webkit-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+        -moz-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+        -o-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+        transition: transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+        
     }
 
     .image-box:hover{
