@@ -16,6 +16,7 @@
             perspective-origin: 50% 50%;
             transition: transform 2s ease;
             transform-style: preserve-3d;
+            animation:cubeRotate 3s linear infinite;
         }
 
         .wrapper div {
@@ -29,31 +30,33 @@
         }
 
         .before {
-            transform:translateZ(203px)
+            transform:translateZ(100px)
+        }
+
+        .after{
+            transform: translateZ(-100px)
         }
 
         .left {
-            transform: rotateY(-90deg);
-            transform-origin: left;
+            transform: rotateY(90deg) translateZ(-100px);
         }
 
         .right {
-            transform: rotateY(90deg);
-            transform-origin: right;
+            transform: rotateY(90deg) translateZ(100px);
         }
 
         .top{
-            transform: rotateX(90deg);
-            transform-origin: top;
+            transform: rotateX(90deg) translateZ(100px);
         }
 
         .bottom{
-            transform: rotateX(270deg);
-            transform-origin:bottom;
+            transform: rotateX(90deg) translateZ(-100px);
         }
 
-        .wrapper:hover div{
-            transform:rotate(30deg)
+        @keyframes cubeRotate{
+            to{
+                transform:rotateY(360deg)
+            }
         }
     </style>
 </head>
