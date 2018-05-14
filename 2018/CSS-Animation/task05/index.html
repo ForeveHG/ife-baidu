@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纯 CSS 制作绕中轴旋转的立方体</title>
+    <style>
+        .wrapper {
+            width: 200px;
+            height: 200px;
+            margin: 100px auto;
+            position: relative;
+            perspective: 800px;
+            perspective-origin: 50% 50%;
+            transition: transform 2s ease;
+            transform-style: preserve-3d;
+        }
+
+        .wrapper div {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 255, .2);
+            border: 2px solid rgba(0, 0, 255, .8)
+        }
+
+        .before {
+            transform:translateZ(203px)
+        }
+
+        .left {
+            transform: rotateY(-90deg);
+            transform-origin: left;
+        }
+
+        .right {
+            transform: rotateY(90deg);
+            transform-origin: right;
+        }
+
+        .top{
+            transform: rotateX(90deg);
+            transform-origin: top;
+        }
+
+        .bottom{
+            transform: rotateX(270deg);
+            transform-origin:bottom;
+        }
+
+        .wrapper:hover div{
+            transform:rotate(30deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="before"></div>
+        <div class="after"></div>
+        <div class="left"></div>
+        <div class="right"></div>
+        <div class="top"></div>
+        <div class="bottom"></div>
+    </div>
+</body>
+
+</html>
