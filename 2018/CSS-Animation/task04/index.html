@@ -21,35 +21,45 @@
             position:absolute;
             left:0;
             top:0;
-            transform-style:preserve-3d;
+            -webkit-backface-visibily:hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibiity: hidden;
+            backface-visibility:hidden;
             -webkit-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
             -moz-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
             transition: transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
         }
         .back{
-            background:url(images/zm.jpg) no-repeat;
-            -webkit-backface-visibily:hidden;
-            -moz-backface-visibility: hidden;
-            -ms-backface-visibiity: hidden;
-            backface-visibility:hidden;
+            background:url(images/fm.jpg) no-repeat;
+            -webkit-transform: rotateY(-180deg);
+            -moz-transform: rotateY(-180deg);
+            -o-transform:rotateY(-180deg);
+            transform: rotateY(-180deg);
         }
         .before{
-            background:url(images/fm.jpg) no-repeat;
+            background:url(images/zm.jpg) no-repeat;
         }
     
-        .wrapper:hover .image-box{
+        .wrapper:hover .before{
             -webkit-transform: rotateY(180deg);
             -moz-transform: rotateY(180deg);
             -o-transform:rotateY(180deg);
             transform: rotateY(180deg);
+        }
+
+        .wrapper:hover .back{
+            -webkit-transform: rotateY(0deg);
+            -moz-transform: rotateY(0deg);
+            -o-transform:rotateY(0deg);
+            transform: rotateY(0deg);
         }
     </style>
 </head>
 
 <body>
    <div class="wrapper">
-       <div class="image-box before"></div>
        <div class="image-box back"></div>
+       <div class="image-box before"></div>
    </div> 
 </body>
 </html>
