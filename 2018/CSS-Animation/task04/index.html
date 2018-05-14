@@ -5,35 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
+    <style>
+        .wrapper{
+            width:250px;
+            height:350px;
+            margin:50px auto;
+            position:relative;
+            -webkit-perspective: 1200px;
+            -moz-perspective: 1200px;
+            perspective:1200px;
+        }
+        .image-box{
+            width:250px;
+            height:350px;
+            position:absolute;
+            left:0;
+            top:0;
+            transform-style:preserve-3d;
+            -webkit-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+            -moz-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+            transition: transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
+        }
+        .back{
+            background:url(images/zm.jpg) no-repeat;
+            -webkit-backface-visibily:hidden;
+            -moz-backface-visibility: hidden;
+            -ms-backface-visibiity: hidden;
+            backface-visibility:hidden;
+        }
+        .before{
+            background:url(images/fm.jpg) no-repeat;
+        }
+    
+        .wrapper:hover .image-box{
+            -webkit-transform: rotateY(180deg);
+            -moz-transform: rotateY(180deg);
+            -o-transform:rotateY(180deg);
+            transform: rotateY(180deg);
+        }
+    </style>
 </head>
-<style>
-    .wrapper{
-        width:50%;
-        margin:0 auto;
-        perspective:1200px;
-    }
-    .image-box{
-        width:250px;
-        height:350px;
-        margin: 50px auto;
-        transform-style:preserve-3d;
-        position:relative;
-        background-image:url(images/zm.jpg);
-        -webkit-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
-        -moz-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
-        -o-transition:  transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
-        transition: transform ease-in-out 1s 0s,background-image ease-in-out 0s 0.5s;
-        
-    }
 
-    .image-box:hover{
-        transform:rotateY(180deg);
-        background-image:url(images/fm.jpg);
-    }
-</style>
 <body>
    <div class="wrapper">
-       <div class="image-box"></div>
+       <div class="image-box before"></div>
+       <div class="image-box back"></div>
    </div> 
 </body>
 </html>
