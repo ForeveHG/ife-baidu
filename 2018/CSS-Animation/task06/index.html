@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html,body{
+            height:100%;
+        }
+        .wrapper{
+            position:relative;
+            width:100%;
+            height:100%;
+            display:flex;
+            align-items:flex-end;
+            justify-content:center;
+        }
+        .pointers li{
+            width:170px;
+            height:120px;
+            display:inline-block;
+        }
+        .pointers li img{
+            width:170px;
+            height:120px;
+            z-index:999;
+        }
+        .pointers li .img-box{
+            position:fixed;
+            left:0;
+            top:0;
+            width:100%;
+            height:100%;
+            z-index:-1;
+        }
+        .pointers li:nth-child(1) .img-box{
+            background: url(images/1.jpg);
+            transform: translateX(-100%);
+        }
+        .pointers li:nth-child(1) .img-link:hover + .img-box{
+            animation:image-01 3s ease-out forwards alternate;
+        }
+        .pointers li:nth-child(2) .img-link:active + .img-box{
+            background:green;
+        }
+
+        @keyframes image-01{
+            to{
+                transform: translateX(0%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <ul class="pointers">
+            <li>
+                <a class="img-link" href="javascript:;"><img src="images/1.jpg"/></a>
+                <div class="img-box"></div>
+            </li>
+            <li>
+                <img src="images/2.jpg"/>
+                <div class="img-box"></div>
+            </li>
+            <li>
+                <img src="images/3.jpg"/>
+                <div class="img-box"></div>
+            </li>
+            <li>
+                <img src="images/4.jpg"/>
+                <div class="img-box"></div>
+            </li>
+            <li>
+                <img src="images/5.jpg"/>
+                <div class="img-box"></div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
