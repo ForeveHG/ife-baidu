@@ -8,6 +8,9 @@
     <title>纯 CSS 制作绕中轴旋转的立方体</title>
     <style>
         .wrapper {
+            -webkit-perspective: 800px;
+            -moz-perspective: 800px;
+            -ms-perspective: 800px;
             perspective: 800px;
         }
 
@@ -17,7 +20,9 @@
             margin: 100px auto;
             position: relative;
             transform-style: preserve-3d;
-            animation: cubeRotate 3s linear infinite;
+            -webkit-animation: cubeRotate 5s linear infinite;
+            -moz-animation: cubeRotate 5s linear infinite;
+            animation: cubeRotate 5s linear infinite;
         }
 
         .cube div {
@@ -31,31 +36,52 @@
         }
 
         .before {
+            -webkit-transform: translateZ(100px);
+            -moz-transform: translateZ(100px);
+            -ms-transform: translateZ(100px);
             transform: translateZ(100px)
         }
 
         .after {
+            -webkit-transform: translateZ(-100px);
+            -moz-transform: translateZ(-100px);
+            -ms-transform: translateZ(-100px);
             transform: translateZ(-100px)
         }
 
         .left {
+            -webkit-transform: rotateY(-90deg) translateZ(100px);
+            -moz-transform: rotateY(-90deg) translateZ(100px);
+            -ms-transform: rotateY(-90deg) translateZ(100px);
             transform: rotateY(-90deg) translateZ(100px);
         }
 
         .right {
+            -webkit-transform: rotateY(90deg) translateZ(100px);
+            -moz-transform: rotateY(90deg) translateZ(100px);
+            -ms-transform: rotateY(90deg) translateZ(100px);
             transform: rotateY(90deg) translateZ(100px);
         }
 
         .top {
+            -webkit-transform: rotateX(90deg) translateZ(100px);
+            -moz-transform: rotateX(90deg) translateZ(100px);
+            -ms-transform: rotateX(90deg) translateZ(100px);
             transform: rotateX(90deg) translateZ(100px);
         }
 
         .bottom {
+            -webkit-transform: rotateX(90deg) translateZ(-100px);
+            -moz-transform: rotateX(90deg) translateZ(-100px);
+            -ms-transform: rotateX(90deg) translateZ(-100px);
             transform: rotateX(90deg) translateZ(-100px);
         }
 
         @keyframes cubeRotate {
             to {
+                -webkit-transform: rotateY(360deg);
+                -moz-transform: rotateY(360deg);
+                -ms-transform: rotateY(360deg);
                 transform: rotateY(360deg)
             }
         }
