@@ -1,86 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <style>
-        *{
-            margin:0;
-            padding:0;
-        }
-        html,body{
-            height:100%;
-        }
-        .wrapper{
-            position:relative;
-            width:100%;
-            height:100%;
-            display:flex;
-            align-items:flex-end;
-            justify-content:center;
-        }
-        .pointers li{
-            width:170px;
-            height:120px;
-            display:inline-block;
-        }
-        .pointers li img{
-            width:170px;
-            height:120px;
-            z-index:999;
-        }
-        .pointers li .img-box{
-            position:fixed;
-            left:0;
-            top:0;
-            width:100%;
-            height:100%;
-            z-index:-1;
-        }
-        .pointers li:nth-child(1) .img-box{
-            background: url(images/1.jpg);
-            transform: translateX(-100%);
-        }
-        .pointers li:nth-child(1) .img-link:hover + .img-box{
-            animation:image-01 3s ease-out forwards alternate;
-        }
-        .pointers li:nth-child(2) .img-link:active + .img-box{
-            background:green;
+        * {
+            margin: 0;
+            padding: 0;
         }
 
-        @keyframes image-01{
-            to{
-                transform: translateX(0%);
+        html,
+        body {
+            height: 100%;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            background:url(images/1.jpg);
+            z-index:0;
+        }
+
+        .pointers li {
+            width: 170px;
+            height: 120px;
+            display: inline-block;
+        }
+
+        .pointers li img {
+            width: 170px;
+            height: 120px;
+            z-index: 999;
+        }
+
+        .pointers li .img-box {
+            position: fixed;
+            left:0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .pointers li:nth-child(1) .img-box {
+            left: -100%;
+            background: url(images/1.jpg);
+        }
+
+        .pointers li:nth-child(2) .img-box {
+            top:-100%;
+            background: url(images/2.jpg);
+        }
+
+        .pointers li:nth-child(3) .img-box {
+            transform:scale(0);
+            background: url(images/3.jpg);
+        }
+
+        .pointers li:nth-child(4) .img-box {
+            transform:scale(0);
+            background: url(images/4.jpg);
+        }
+
+         .pointers li:nth-child(5) .img-box {
+            transform:rotate(-360deg) scale(0);
+            background: url(images/5.jpg);
+        }
+
+        .animation1 {
+            animation: image1 .5s ease-out forwards;
+        }
+
+        .animation2{
+            animation: image2 .5s ease-in forwards;
+        }
+
+        .animation3{
+            animation: image3 1s ease-in forwards;
+        }
+
+        .animation4{
+            animation: image4 1s ease-out forwards;
+        }
+
+        .animation5{
+            animation: image5 .7s ease-in-out forwards;
+        }
+
+        @keyframes image1 {
+            0% {
+                left:-500px;
+            }
+            100% {
+                left:0px;
+            }
+        }
+
+        @keyframes image2{
+            0%{
+                top: 350px;
+            }
+            100%{
+                top: 0px;
+            }
+        }
+
+        @keyframes image3{
+            0%{
+                transform:scale(0.1)
+            }
+            100%{
+                transform:scale(1)
+            }
+        }
+
+        @keyframes image4{
+            0%{
+                transform:scale(2)
+            }
+            100%{
+                transform:scale(1)
+            }
+        }
+
+        @keyframes image5{
+            0%{
+                transform:rotate(-360deg) scale(0.1)
+            }
+            100%{
+                transform:rotate(0deg) scale(1)
             }
         }
     </style>
+
 </head>
+
 <body>
     <div class="wrapper">
         <ul class="pointers">
             <li>
-                <a class="img-link" href="javascript:;"><img src="images/1.jpg"/></a>
+                <img onclick="imgClick(this,' animation1')" src="images/1.jpg" />
                 <div class="img-box"></div>
             </li>
             <li>
-                <img src="images/2.jpg"/>
+                <img onclick="imgClick(this,' animation2')" src="images/2.jpg" />
                 <div class="img-box"></div>
             </li>
             <li>
-                <img src="images/3.jpg"/>
+                <img onclick="imgClick(this,' animation3')" src="images/3.jpg" />
                 <div class="img-box"></div>
             </li>
             <li>
-                <img src="images/4.jpg"/>
+                <img onclick="imgClick(this,' animation4')" src="images/4.jpg" />
                 <div class="img-box"></div>
             </li>
             <li>
-                <img src="images/5.jpg"/>
+                <img onclick="imgClick(this,' animation5')" src="images/5.jpg" />
                 <div class="img-box"></div>
             </li>
         </ul>
     </div>
+    <script type="text/javascript">
+        function $(selector) {
+            return document.querySelector(selector);
+        }
+        function imgClick(e,className) {
+            var currentClass = e.nextElementSibling.className;
+            e.nextElementSibling.className = e.nextElementSibling.className + className
+            console.log(e.nextElementSibling)
+        }
+    </script>
 </body>
+
 </html>
