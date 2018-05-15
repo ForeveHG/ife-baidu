@@ -8,3 +8,5 @@
 [查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task03/)
 4. 图片反转
 [查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task04/)
+5. 旋转的立方体
+[查看效果](https://forevehg.github.io/ife-baidu/2018/CSS-Animation/task05/)
