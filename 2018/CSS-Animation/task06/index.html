@@ -21,16 +21,19 @@
             position: relative;
             width: 100%;
             height: 100%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            background:url(images/1.jpg);
-            z-index:0;
+            overflow:hidden;
+        }
+
+        .pointers {
+            position: absolute;
+            left: 50%;
+            top: 85%;
+            -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
         }
 
         .pointers li {
-            width: 170px;
-            height: 120px;
             display: inline-block;
         }
 
@@ -40,102 +43,86 @@
             z-index: 999;
         }
 
-        .pointers li .img-box {
-            position: fixed;
-            left:0;
+        .img-box {
+            position: absolute;
+            left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            z-index: -1;
-        }
-
-        .pointers li:nth-child(1) .img-box {
-            left: -100%;
             background: url(images/1.jpg);
         }
 
-        .pointers li:nth-child(2) .img-box {
-            top:-100%;
-            background: url(images/2.jpg);
-        }
-
-        .pointers li:nth-child(3) .img-box {
-            transform:scale(0);
-            background: url(images/3.jpg);
-        }
-
-        .pointers li:nth-child(4) .img-box {
-            transform:scale(0);
-            background: url(images/4.jpg);
-        }
-
-         .pointers li:nth-child(5) .img-box {
-            transform:rotate(-360deg) scale(0);
-            background: url(images/5.jpg);
-        }
-
         .animation1 {
+            -webkit-animation: image1 .5s ease-out forwards;
             animation: image1 .5s ease-out forwards;
         }
 
-        .animation2{
+        .animation2 {
+            -webkit-animation: image2 .5s ease-in forwards;            
             animation: image2 .5s ease-in forwards;
         }
 
-        .animation3{
+        .animation3 {
+            -webkit-animation: image3 1s ease-in forwards;
             animation: image3 1s ease-in forwards;
         }
 
-        .animation4{
+        .animation4 {
+            -webkit-transform-origin: center;
+            -moz-transform-origin: center;
+            -ms-transform-origin: center;
+            transform-origin:center;
+            -webkit-animation: image4 1s ease-out forwards;
             animation: image4 1s ease-out forwards;
         }
 
-        .animation5{
+        .animation5 {
+            -webkit-animation: image5 .7s ease-in-out forwards;
             animation: image5 .7s ease-in-out forwards;
         }
 
         @keyframes image1 {
             0% {
-                left:-500px;
+                left: -500px;
             }
             100% {
-                left:0px;
+                left: 0px;
             }
         }
 
-        @keyframes image2{
-            0%{
+        @keyframes image2 {
+            0% {
                 top: 350px;
             }
-            100%{
+            100% {
                 top: 0px;
             }
         }
 
-        @keyframes image3{
-            0%{
-                transform:scale(0.1)
+        @keyframes image3 {
+            0% {
+                transform: scale(0.1)
             }
-            100%{
-                transform:scale(1)
-            }
-        }
-
-        @keyframes image4{
-            0%{
-                transform:scale(2)
-            }
-            100%{
-                transform:scale(1)
+            100% {
+                transform: scale(1)
             }
         }
 
-        @keyframes image5{
-            0%{
-                transform:rotate(-360deg) scale(0.1)
+        @keyframes image4 {
+            0% {
+                transform: scale(2)
             }
-            100%{
-                transform:rotate(0deg) scale(1)
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        @keyframes image5 {
+            0% {
+                transform: rotate(-360deg) scale(0.1)
+            }
+            100% {
+                transform: rotate(0deg) scale(1)
             }
         }
     </style>
@@ -144,39 +131,42 @@
 
 <body>
     <div class="wrapper">
+        <div class="img-box"></div>
         <ul class="pointers">
             <li>
-                <img onclick="imgClick(this,' animation1')" src="images/1.jpg" />
-                <div class="img-box"></div>
+                <img src="images/1.jpg" />
             </li>
             <li>
-                <img onclick="imgClick(this,' animation2')" src="images/2.jpg" />
-                <div class="img-box"></div>
+                <img src="images/2.jpg" />
             </li>
             <li>
-                <img onclick="imgClick(this,' animation3')" src="images/3.jpg" />
-                <div class="img-box"></div>
+                <img src="images/3.jpg" />
             </li>
             <li>
-                <img onclick="imgClick(this,' animation4')" src="images/4.jpg" />
-                <div class="img-box"></div>
+                <img src="images/4.jpg" />
             </li>
             <li>
-                <img onclick="imgClick(this,' animation5')" src="images/5.jpg" />
-                <div class="img-box"></div>
+                <img src="images/5.jpg" />
             </li>
         </ul>
     </div>
     <script type="text/javascript">
         function $(selector) {
-            return document.querySelector(selector);
+            return document.querySelectorAll(selector);
         }
-        function imgClick(e,className) {
-            var currentClass = e.nextElementSibling.className;
-            e.nextElementSibling.className = e.nextElementSibling.className + className
-            console.log(e.nextElementSibling)
+        var elements = $(".pointers li");
+        for(var i = 0; i < elements.length; i++){
+            var bgimage = "";
+            elements[i].index = i;
+            elements[i].onclick = function(){
+                var imgBox = $(".img-box")[0];
+                var imgUrl = "url(images/" + (this.index+1) +".jpg)";
+                imgBox.style.background = imgUrl;
+                imgBox.className = "img-box animation" + (this.index + 1);
+                $(".wrapper")[0].style.background = bgimage;
+                bgimage = imgUrl;
+            }
         }
     </script>
 </body>
-
 </html>
